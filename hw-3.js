@@ -1,13 +1,16 @@
 // задание № 1
 
-let i = 1;
-while (i <= 10) {
-    for (let j = 2; j < i; j++) {
-        if (i % j == 0)
+let i = 2;
+let j = 2;
+while (i <= 100) {
+    while (j < i) {
+        if (i % j == 0) {
+            j++;
+            i++;
             continue;
+        }
     }
-    console.log(i);
-    i++;
+    console.log(i++);
 }
 
 
