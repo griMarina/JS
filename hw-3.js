@@ -3,12 +3,23 @@
 let i = 2;
 checki: while (i <= 100) {
     checkj: for (let j = 2; j < i; j++) {
-        if (i % j === 0) {
+        if (i % j == 0) {
             i++;
             continue checki;
         }
     }
     console.log(i++);
+}
+
+// в задании сказано создать цикл while, но кажется, что с for выглядит симпатичнее :)
+
+checki: for (let i = 2; i <= 100; i++) {
+    checkj: for (let j = 2; j < i; j++) {
+        if (i % j == 0) {
+            continue checki;
+        }
+    }
+    console.log(i);
 }
 
 // задание № 2
