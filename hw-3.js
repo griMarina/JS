@@ -2,11 +2,13 @@
 
 let i = 2;
 checki: while (i <= 100) {
-    checkj: for (let j = 2; j < i; j++) {
+    let j = 2;
+    checkj: while (j < i) {
         if (i % j == 0) {
             i++;
             continue checki;
         }
+        j++;
     }
     console.log(i++);
 }
@@ -26,8 +28,8 @@ checki: for (let i = 2; i <= 100; i++) {
 
 function countBasketPrice(array) {
     let sum = 0;
-    for (let item = 0; item < array.length; item++) {
-        sum += array[item]
+    for (let item of array) {
+        sum += item;
     }
     return sum;
 }
@@ -35,13 +37,13 @@ function countBasketPrice(array) {
 let itemsInBasket = [100, 35, 40, 25];  // массив с товарами в корзине
 console.log('Oбщая стоимость всех товаров в корзине: ' + countBasketPrice(itemsInBasket) + '$');
 
-// // задание № 3
+// задание № 3
 
 for (let i = 0; i <= 9; console.log(i++)) {
 
 };
 
-// // задание № 4
+// задание № 4
 
 let x = 'x';
 
