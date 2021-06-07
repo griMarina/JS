@@ -27,7 +27,7 @@ function convertNumToObj(num) {
 
 function convertNumToObj2(num) {
     const numDigits = {};
-    let arr = num.toString().split(''); // преобразуем число в строку, а затем в массив отдельных чисел
+    let arr = num.toString().split('').map(Number); // преобразуем число в строку, а затем в массив строк, а затем в массив чисел.
     if (num > 999) {
         console.log('Введенное число больше 999');
         return numDigits;
@@ -42,3 +42,5 @@ function convertNumToObj2(num) {
 let num = prompt('Введите число от 0 до 999');
 console.log(convertNumToObj(num));
 console.log(convertNumToObj2(num));
+
+// Задание № 2
