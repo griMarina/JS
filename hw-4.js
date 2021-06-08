@@ -1,11 +1,9 @@
 'use strict'
 // Задание № 1
-
 // 1 вариант
 
-// функция возвращает остаток от деления на 10
 function getDigit(num) {
-    return (num % 10 > 0) ? num % 10 : 0;
+    return (num % 10 > 0) ? num % 10 : 0; // функция возвращает остаток от деления на 10
 }
 
 function convertNumToObj(num) {
@@ -24,7 +22,6 @@ function convertNumToObj(num) {
 }
 
 // 2 вариант
-
 function convertNumToObj2(num) {
     const numDigits = {};
     let arr = num.toString().split('').map(Number); // преобразуем число в строку, а затем в массив строк, а затем в массив чисел.
@@ -44,3 +41,7 @@ console.log(convertNumToObj(num));
 console.log(convertNumToObj2(num));
 
 // Задание № 2
+
+let Basket = [
+
+]
