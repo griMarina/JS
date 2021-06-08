@@ -1,7 +1,7 @@
 'use strict'
 // Задание № 1
-// 1 вариант
 
+// 1 вариант
 function getDigit(num) {
     return (num % 10 > 0) ? num % 10 : 0; // функция возвращает остаток от деления на 10
 }
@@ -58,8 +58,18 @@ let item4 = new item('socks', 20, 's', 'black', 2);
 let basket = [item1, item2, item3, item4];
 console.log(basket);
 
-let totalSum = basket.reduce((sum, item) => {
-    sum += (item.price * item.quantity);
+function countBasketPrice(array) {
+    let sum = 0;
+    for (let item of array) {
+        sum += (item.price * item.quantity);
+    }
     return sum;
-}, 0);
-console.log(totalSum);
+}
+console.log(countBasketPrice(basket));
+
+
+// let totalSum = basket.reduce((sum, item) => {
+//     sum += (item.price * item.quantity);
+//     return sum;
+// }, 0);
+// console.log(totalSum);
