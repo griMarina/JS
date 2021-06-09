@@ -4,7 +4,7 @@
 
 // 1 вариант
 function convertNumToObj(num) {
-    const digits = 'units tens hundreds'.split(' '); // массив с разрядами
+    const digits = ['units', 'tens', 'hundreds']; //массив с разрядами
     let obj = {};
     if (num > 999) {
         console.log('Введенное число больше 999');
@@ -19,7 +19,7 @@ function convertNumToObj(num) {
 
 // 2 вариант
 function convertNumToObj2(num) {
-    const digits = 'units tens hundreds'.split(' ');
+    const digits = ['units', 'tens', 'hundreds'];
     const arr = num.toString().split('').map(Number); //преобразуем число в строку, а затем в массив строк, а затем в массив чисел.
     let obj = {};
     let a = arr.length;
