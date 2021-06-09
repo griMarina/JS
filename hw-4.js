@@ -1,46 +1,44 @@
 'use strict'
+
 // Задание № 1
 
 // 1 вариант
-function getDigit(num) {
-    return (num % 10 > 0) ? num % 10 : 0; // функция возвращает остаток от деления на 10
-}
-
 function convertNumToObj(num) {
-    const numDigits = {};
+    const digits = 'units tens hundreds'.split(' '); // массив с разрядами
+    let obj = {};
     if (num > 999) {
         console.log('Введенное число больше 999');
-        return numDigits;
-    } else {
-        numDigits.units = getDigit(num); // добавляем свойство units в Объект и записываем в него значение, равное остатку от деления на 10.
-        num = Math.trunc(num / 10); // получаем целую часть от числа, поделённого на 10, чтобы определить следующий разряд.
-        numDigits.tens = getDigit(num);
-        num = Math.trunc(num / 10);
-        numDigits.hundreds = getDigit(num);
-        return numDigits;
+        return obj;
     }
+    for (let i = 0; i < 3; i++) {
+        obj[digits[i]] = num % 10; // добавляем свойство из массива с разрядами в Объект и записываем в него значение, равное остатку от деления на 10.
+        num = Math.trunc(num / 10); //получаем целую часть от числа, поделённого на 10, чтобы определить следующий разряд.
+    }
+    return obj;
 }
 
 // 2 вариант
 function convertNumToObj2(num) {
-    const numDigits = {};
-    let arr = num.toString().split('').map(Number); // преобразуем число в строку, а затем в массив строк, а затем в массив чисел.
-    if (num > 999) {
+    const digits = 'units tens hundreds'.split(' ');
+    const arr = num.toString().split('').map(Number); //преобразуем число в строку, а затем в массив строк, а затем в массив чисел.
+    let obj = {};
+    let a = arr.length;
+    if (a > 3) { // проверяем длину массива с числами
         console.log('Введенное число больше 999');
-        return numDigits;
-    } else {
-        numDigits.hundreds = (arr.length < 3) ? 0 : arr[0]; // добавляем свойство hundreds в Объект и записываем в него значение в зависимости от длины массива.
-        numDigits.tens = (arr.length >= 2) ? arr[arr.length - 2] : 0;
-        numDigits.units = (arr.length >= 1) ? arr[arr.length - 1] : 0;
-        return numDigits;
+        return obj;
     }
+    for (let i = 0; i < 3; i++) {
+        obj[digits[i]] = arr[--a] || 0; // добавляем свойство из массива с разрядами в Объект и записываем в него значение из массива с числами
+    }
+    return obj;
 }
 
 let num = prompt('Введите число от 0 до 999');
 console.log(convertNumToObj(num));
 console.log(convertNumToObj2(num));
 
-// Задание № 2
+
+// Задание № 2 и 3
 
 function item(name, price, size, color, quantity) {
     this.name = name,
