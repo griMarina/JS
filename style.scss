@@ -1,4 +1,4 @@
-@mixin firstColAndRow {
+@mixin colAndRow {
     border: none;
     display: flex;
     align-items: center;
@@ -17,11 +17,11 @@
 }
 
 .col-num {
-    @include firstColAndRow();
+    @include colAndRow();
 }
 
 .row-let {
-    @include firstColAndRow();
+    @include colAndRow();
 }
 
 .black {

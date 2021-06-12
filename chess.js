@@ -1,3 +1,5 @@
+'use strict'
+
 function createBoard() {
     const board = document.querySelector('.board');
     const letList = 'ABCDEFGH'.split('');
