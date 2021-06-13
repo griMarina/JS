@@ -1,0 +1,38 @@
+$color: #270d11;
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.cart {
+    background-color: $color;
+    color: white;
+    height: 50px;
+    padding: 7px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+}
+
+.catalog {
+    margin-top: 40px;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+
+    div {
+        display: block;
+        margin: 5px;
+        background-color: $color;
+
+        span {
+            display: block;
+            text-align: center;
+            font-size: large;
+            padding: 10px;
+            color: fff;
+        }
+    }
+}
