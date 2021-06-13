@@ -41,7 +41,7 @@ function createCatalog(array) { // вывод товаров с название
         catalog.appendChild(item);
     }
 }
-
+// массив корзины
 let cartArr = [
     // new item('Rucksack', 1000, 'one size', 'grey', 1,),
     // new item('Suit', 3000, 'm', 'black', 1),
@@ -50,7 +50,7 @@ let cartArr = [
     new item('jacket', 1500, 'm', 'blue', 1),
     new item('Shirt', 1200, 's', 'green', 3)
 ];
-
+//массив каталога
 let catalogArr = [
     new item('Rucksack', 1000, 'one size', 'grey', 1, 'img/item-1.jpg'),
     new item('Suit', 3000, 'm', 'black', 1, 'img/item-2.jpg'),
@@ -60,14 +60,12 @@ let catalogArr = [
     new item('Shirt', 1200, 's', 'green', 3, 'img/item-6.jpg')
 ]
 
-
-// let quantityTotal = countQuantity(cartArr);
-// let sumTotal = countCartPrice(cartArr);
-
+// Вывод текста в корзине
 if (countQuantity(cartArr) === 0) {
     cart.textContent = 'Корзина пуста';
 } else {
     cart.textContent = `В корзине ${countQuantity(cartArr)} товаров на сумму ${countCartPrice(cartArr)} рублей`;
 };
 
+// вывод товаров из массива каталог
 createCatalog(catalogArr);
