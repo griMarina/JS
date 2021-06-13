@@ -4,10 +4,10 @@ body {
 }
 
 .cart {
-  background-color: #270d11;
-  color: white;
+  padding: 0 calc(50% - 570px);
+  background-color: #25080f;
+  color: #fff;
   height: 50px;
-  padding: 7px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -20,8 +20,8 @@ body {
 }
 
 .catalog {
-  margin-top: 40px;
-  height: 100%;
+  padding: 0 calc(50% - 570px);
+  margin: 0 auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -32,7 +32,7 @@ body {
 .catalog div {
   display: block;
   margin: 5px;
-  background-color: #270d11;
+  background-color: #25080f;
 }
 
 .catalog div span {
@@ -40,6 +40,6 @@ body {
   text-align: center;
   font-size: large;
   padding: 10px;
-  color: fff;
+  color: #fff;
 }
 /*# sourceMappingURL=style-shop.css.map */

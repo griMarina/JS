@@ -20,7 +20,7 @@ function countQuantity(array) { // подсчет количества това�
     return sum;
 }
 
-function countCartPrice(array) { // подсчет общей суммы 
+function countCartPrice(array) { // подсчет общей cтоимости 
     let sum = 0;
     for (let item of array) {
         sum += (item.price * item.quantity);
@@ -43,9 +43,9 @@ function createCatalog(array) { // вывод товаров с название
 }
 // массив корзины
 let cartArr = [
-    // new item('Rucksack', 1000, 'one size', 'grey', 1,),
-    // new item('Suit', 3000, 'm', 'black', 1),
-    // new item('Jacket', 4000, 'l', 'black', 1),
+    new item('Rucksack', 1000, 'one size', 'grey', 1,),
+    new item('Suit', 3000, 'm', 'black', 1),
+    new item('Jacket', 4000, 'l', 'black', 1),
     new item('Trousers', 2000, 'l', 'yellow', 2),
     new item('jacket', 1500, 'm', 'blue', 1),
     new item('Shirt', 1200, 's', 'green', 3)
