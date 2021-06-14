@@ -3,13 +3,13 @@
 const cart = document.querySelector('.cart');
 const catalog = document.querySelector('.catalog');
 
-function item(name, price, size, color, quantity, img) { // конструктор для создания товаров
+function item(name, price, img, size, color, quantity = 1) { // конструктор для создания товаров
     this.name = name,
         this.price = price,
+        this.img = img,
         this.size = size,
         this.color = color,
-        this.quantity = quantity,
-        this.img = img;
+        this.quantity = quantity;
 }
 
 function countQuantity(array) { // подсчет количества товаров в корзине
@@ -41,24 +41,28 @@ function createCatalog(array) { // вывод товаров с название
         catalog.appendChild(item);
     }
 }
+
 // массив корзины
 let cartArr = [
-    new item('Rucksack', 1000, 'one size', 'grey', 1,),
-    new item('Suit', 3000, 'm', 'black', 1),
-    new item('Jacket', 4000, 'l', 'black', 1),
-    new item('Trousers', 2000, 'l', 'yellow', 2),
-    new item('jacket', 1500, 'm', 'blue', 1),
-    new item('Shirt', 1200, 's', 'green', 3)
+    new item('Rucksack', 1000, '', 'one size', 'grey', 1,),
+    new item('Suit', 3000, '', 'm', 'black', 1),
+    new item('Jacket', 4000, '', 'l', 'black', 1),
+    new item('Trousers', 2000, '', 'l', 'yellow', 2),
+    new item('jacket', 1500, '', 'm', 'blue', 1),
+    new item('Shirt', 1200, '', 's', 'green', 3)
 ];
+console.log(cartArr);
+
 //массив каталога
 let catalogArr = [
-    new item('Rucksack', 1000, 'one size', 'grey', 1, 'img/item-1.jpg'),
-    new item('Suit', 3000, 'm', 'black', 1, 'img/item-2.jpg'),
-    new item('Jacket', 4000, 'l', 'black', 1, 'img/item-3.jpg'),
-    new item('Trousers', 2000, 'l', 'yellow', 2, 'img/item-4.jpg'),
-    new item('Jacket', 1500, 'm', 'blue', 1, 'img/item-5.jpg'),
-    new item('Shirt', 1200, 's', 'green', 3, 'img/item-6.jpg')
+    new item('Rucksack', 1000, 'img/item-1.jpg', 'one size', 'grey'),
+    new item('Suit', 3000, 'img/item-2.jpg', 'm', 'black'),
+    new item('Jacket', 4000, 'img/item-3.jpg', 'l', 'black'),
+    new item('Trousers', 2000, 'img/item-4.jpg', 'l', 'yellow'),
+    new item('Jacket', 1500, 'img/item-5.jpg', 'm', 'blue'),
+    new item('Shirt', 1200, 'img/item-6.jpg', 's', 'green')
 ]
+console.log(catalogArr);
 
 // Вывод текста в корзине
 if (countQuantity(cartArr) === 0) {
