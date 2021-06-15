@@ -1,0 +1,29 @@
+@mixin colAndRow {
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.row {
+    display: flex;
+}
+
+.col {
+    width: 70px;
+    height: 70px;
+    border: 1px solid #000;
+    box-sizing: border-box;
+}
+
+.col-num {
+    @include colAndRow();
+}
+
+.row-let {
+    @include colAndRow();
+}
+
+.black {
+    background-color: #000;
+}

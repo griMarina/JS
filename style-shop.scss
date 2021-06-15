@@ -1,0 +1,40 @@
+$color-bg: #25080f;
+$color-text: #fff;
+$center: 0 calc(50% - 570px);
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.cart {
+    padding: $center;
+    background-color: $color-bg;
+    color: $color-text;
+    height: 50px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+}
+
+.catalog {
+    padding: $center;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+
+    div {
+        display: block;
+        margin: 5px;
+        background-color: $color-bg;
+
+        span {
+            display: block;
+            text-align: center;
+            font-size: large;
+            padding: 10px;
+            color: $color-text;
+        }
+    }
+}
