@@ -5,8 +5,8 @@ body {
 
 .cart {
   padding: 0 calc(50% - 570px);
-  background-color: #25080f;
-  color: #fff;
+  background-color: #330000;
+  color: white;
   height: 50px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -17,6 +17,7 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin-bottom: 30px;
 }
 
 .catalog {
@@ -25,21 +26,23 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
 }
 
-.catalog div {
-  display: block;
-  margin: 5px;
-  background-color: #25080f;
+.card {
+  margin-bottom: 20px;
+  text-align: center;
+  border: 0.5px solid #330000;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding-bottom: 10px;
 }
 
-.catalog div span {
-  display: block;
-  text-align: center;
-  font-size: large;
-  padding: 10px;
-  color: #fff;
+.card__title {
+  color: #330000;
 }
 /*# sourceMappingURL=style-shop.css.map */
