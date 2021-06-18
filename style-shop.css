@@ -33,7 +33,7 @@ body {
       flex-wrap: wrap;
 }
 
-.card {
+.item-card {
   margin-bottom: 20px;
   text-align: center;
   border: 0.5px solid #330000;
@@ -42,7 +42,7 @@ body {
   padding-bottom: 10px;
 }
 
-.card__title {
+.item-card__title {
   color: #330000;
 }
 /*# sourceMappingURL=style-shop.css.map */
