@@ -6,6 +6,7 @@ const $popup = document.querySelector('.popup');
 const $closePopupBtn = $popup.querySelector('.close-btn');
 const $slider = $popup.querySelector('.slider')
 const $cartSlide = $popup.querySelector('.cart-slide');
+const $nextBtn = $slider.querySelector('.next-btn');
 
 let cart = [];
 let catalog = [];
@@ -97,6 +98,27 @@ function createCartSlide() {
     $cartSlide.insertAdjacentHTML('afterbegin', html);
 }
 
+// смена слайдов
+function createSlider() {
+    const slides = $slider.querySelectorAll('.slide');
+    let currentSlide = 0;
+
+    slides[currentSlide].style.display = 'block';
+
+    function showNextSlide() {
+        if (currentSlide < slides.length - 1) {
+            slides[currentSlide].style.display = 'none';
+            slides[++currentSlide].style.display = 'block';
+        } else {
+            slides[currentSlide].style.display = 'none';
+            currentSlide = 0;
+            slides[currentSlide].style.display = 'block';
+        }
+    }
+
+    $nextBtn.addEventListener('click', showNextSlide);
+}
+
 $closePopupBtn.addEventListener('click', closePopup);
 $cart.addEventListener('click', showPopup);
 
@@ -134,4 +156,4 @@ $slider.addEventListener('click', function (event) {
     }
 });
 
-
+createSlider();

@@ -138,6 +138,7 @@ body {
 
 .slide {
   padding: 20px;
+  display: none;
 }
 
 .cart-item {
