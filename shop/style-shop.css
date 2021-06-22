@@ -137,14 +137,10 @@ body {
 }
 
 .slide {
-  display: none;
-}
-
-.current-slide {
   padding: 20px;
 }
 
-.cart-slide {
+.cart-item {
   margin-bottom: 20px;
 }
 

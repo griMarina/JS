@@ -5,7 +5,7 @@ const $catalog = document.querySelector('.catalog');
 const $popup = document.querySelector('.popup');
 const $closePopupBtn = $popup.querySelector('.close-btn');
 const $slider = $popup.querySelector('.slider')
-const $currentSlide = $popup.querySelector('.current-slide');
+const $cartSlide = $popup.querySelector('.cart-slide');
 
 let cart = [];
 let catalog = [];
@@ -63,7 +63,7 @@ function createItemCard({ title, img, desc, price, id }) { // создание �
     <img src="${img}" alt="image" class="item-card__img ">
     <p class="item-card__desc">${desc}</p>
     <p class="item-card__price">${price} руб.</p>
-    <button data-id="${id}" class="item-card__btn">Add to Cart</button>
+    <button data-id="${id}" class="item-card__btn">Добавить в корзину</button>
     </div>`;
     $catalog.insertAdjacentHTML('beforeend', itemHtml);
 }
@@ -73,7 +73,7 @@ function createCartText() { // текст корзины
         $cart.textContent = `В корзине ${countQuantity(cart)} товаров на сумму ${countCartPrice(cart)} рублей`;
     } else {
         $cart.textContent = 'Корзина пуста';
-        $currentSlide.textContent = 'Корзина пуста'
+        $cartSlide.textContent = 'Корзина пуста'
     };
 }
 
@@ -87,26 +87,26 @@ function closePopup() {
 
 // отрисовка товаров в popup
 function createCartSlide() {
-    $currentSlide.textContent = '';
+    $cartSlide.textContent = '';
     const html = cart.map(function (item, index) {
-        return `<div class="cart-slide">
+        return `<div class="cart-item">
         <div class="cart-slide__itm" id="${index}">${item.title}: ${item.price} руб. количество: ${item.quantity}</div>
         <button data-id="${index}" class="delete-btn">Удалить</button></div>`
     }).join(' ');
 
-    $currentSlide.insertAdjacentHTML('afterbegin', html);
+    $cartSlide.insertAdjacentHTML('afterbegin', html);
 }
 
 $closePopupBtn.addEventListener('click', closePopup);
 $cart.addEventListener('click', showPopup);
 
 catalog = [
-    new Item('Rucksack', 'img/item-1.jpg', 'Item description', 1000),
-    new Item('Suit', 'img/item-2.jpg', 'Item description', 3000),
-    new Item('Jacket', 'img/item-3.jpg', 'Item description', 4000),
-    new Item('Trousers', 'img/item-4.jpg', 'Item description', 2000),
-    new Item('Jacket', 'img/item-5.jpg', 'Item description', 1500),
-    new Item('Shirt', 'img/item-6.jpg', 'Item description', 1200)
+    new Item('Рюкзак', 'img/item-1.jpg', 'Описание товара', 1000),
+    new Item('Костюм', 'img/item-2.jpg', 'Описание товара', 3000),
+    new Item('Куртка', 'img/item-3.jpg', 'Описание товара', 4000),
+    new Item('Брюки', 'img/item-4.jpg', 'Описание товара', 2000),
+    new Item('Пиджак', 'img/item-5.jpg', 'Описание товара', 1500),
+    new Item('Рубашка', 'img/item-6.jpg', 'Описание товара', 1200)
 ];
 
 createCatalog(catalog);
@@ -117,20 +117,21 @@ $catalog.addEventListener('click', function (event) {
     if (event.target.className === 'item-card__btn') {
         const dataId = Number(event.target.getAttribute('data-id'));
         cart.push(new ItemCart(catalog[dataId]));
+
+        createCartText();
+        createCartSlide();
     }
-    createCartText();
-    createCartSlide();
-})
+});
 
 // удаление товаров из корзины
 $slider.addEventListener('click', function (event) {
     if (event.target.className === 'delete-btn') {
         const dataId = Number(event.target.getAttribute('data-id'));
         cart.splice(dataId, 1);
+
+        createCartSlide();
+        createCartText();
     }
-    console.log(cart);
-    createCartSlide();
-    createCartText();
 });
 
 
