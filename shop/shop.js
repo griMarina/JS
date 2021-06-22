@@ -3,11 +3,9 @@
 const $cart = document.querySelector('.cart');
 const $catalog = document.querySelector('.catalog');
 const $popup = document.querySelector('.popup');
-console.log($popup);
 const $closePopupBtn = $popup.querySelector('.close-btn');
-const $currentSlide = document.querySelector('.current-slide');
-
-console.dir($currentSlide)
+const $slider = $popup.querySelector('.slider')
+const $currentSlide = $popup.querySelector('.current-slide');
 
 let cart = [];
 let catalog = [];
@@ -92,7 +90,7 @@ function createCartSlide() {
     $currentSlide.textContent = '';
     const html = cart.map(function (item, index) {
         return `<div class="cart-slide">
-        <div class="cart-slide__itm" id="${index}">${item.title}:     ${item.price} руб.     количество: ${item.quantity}</div>
+        <div class="cart-slide__itm" id="${index}">${item.title}: ${item.price} руб. количество: ${item.quantity}</div>
         <button data-id="${index}" class="delete-btn">Удалить</button></div>`
     }).join(' ');
 
@@ -117,9 +115,22 @@ createCartText();
 // добавление товара в массив корзины
 $catalog.addEventListener('click', function (event) {
     if (event.target.className === 'item-card__btn') {
-        let dataId = Number(event.target.getAttribute('data-id'));
+        const dataId = Number(event.target.getAttribute('data-id'));
         cart.push(new ItemCart(catalog[dataId]));
     }
     createCartText();
     createCartSlide();
 })
+
+// удаление товаров из корзины
+$slider.addEventListener('click', function (event) {
+    if (event.target.className === 'delete-btn') {
+        const dataId = Number(event.target.getAttribute('data-id'));
+        cart.splice(dataId, 1);
+    }
+    console.log(cart);
+    createCartSlide();
+    createCartText();
+});
+
+
