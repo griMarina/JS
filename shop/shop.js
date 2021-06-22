@@ -106,14 +106,9 @@ function createSlider() {
     slides[currentSlide].style.display = 'block';
 
     function showNextSlide() {
-        if (currentSlide < slides.length - 1) {
-            slides[currentSlide].style.display = 'none';
-            slides[++currentSlide].style.display = 'block';
-        } else {
-            slides[currentSlide].style.display = 'none';
-            currentSlide = 0;
-            slides[currentSlide].style.display = 'block';
-        }
+        slides[currentSlide].style.display = 'none';
+        currentSlide = (currentSlide < slides.length - 1) ? ++currentSlide : 0;
+        slides[currentSlide].style.display = 'block';
     }
 
     $nextBtn.addEventListener('click', showNextSlide);
@@ -134,7 +129,7 @@ catalog = [
 createCatalog(catalog);
 createCartText();
 
-// добавление товара в массив корзины
+// добавление товара в корзинy
 $catalog.addEventListener('click', function (event) {
     if (event.target.className === 'item-card__btn') {
         const dataId = Number(event.target.getAttribute('data-id'));
