@@ -80,7 +80,7 @@ function createCartText() {
     } else {
         $cart.textContent = 'Корзина пуста';
         $cartSlide.textContent = 'Корзина пуста'
-    };
+    }
 }
 
 // склонение слова "товар" в зависимости от количества
@@ -88,9 +88,15 @@ function declensionWords(number) {
     const words = ['товар', 'товара', 'товаров'];
     number = number % 100;
     let numUnits = number % 10;
-    if (number > 10 && number < 20) { return words[2]; }
-    if (numUnits > 1 && numUnits < 5) { return words[1]; }
-    if (numUnits === 1) { return words[0]; }
+    if (number > 10 && number < 20) {
+        return words[2];
+    }
+    if (numUnits > 1 && numUnits < 5) {
+        return words[1];
+    }
+    if (numUnits === 1) {
+        return words[0];
+    }
     return words[2];
 }
 
