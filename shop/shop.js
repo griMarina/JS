@@ -36,7 +36,8 @@ function ItemCart({ title, price, quantity = 1 }) {
     this.id = itemCartId();
 }
 
-function countQuantity(array) { // подсчет количества товаров в корзине
+// подсчет количества товаров в корзине
+function countQuantity(array) {
     let sum = 0;
     for (let item of array) {
         sum += item.quantity;
@@ -44,7 +45,8 @@ function countQuantity(array) { // подсчет количества това�
     return sum;
 }
 
-function countCartPrice(array) { // подсчет общей cтоимости корзины
+// подсчет общей cтоимости корзины
+function countCartPrice(array) {
     let sum = 0;
     for (let item of array) {
         sum += (item.price * item.quantity);
@@ -52,13 +54,15 @@ function countCartPrice(array) { // подсчет общей cтоимости 
     return sum;
 }
 
-function createCatalog(array) { // создание каталога с карточками
+// создание каталога с карточками
+function createCatalog(array) {
     for (let item of array) {
         createItemCard(item);
     }
 }
 
-function createItemCard({ title, img, desc, price, id }) { // создание карточки товара
+// создание карточки товара в каталоге
+function createItemCard({ title, img, desc, price, id }) {
     const itemHtml = `<div class="item-card ">
     <h2 class="item-card__title ">${title}</h2>
     <img src="${img}" alt="image" class="item-card__img ">
@@ -69,13 +73,25 @@ function createItemCard({ title, img, desc, price, id }) { // создание �
     $catalog.insertAdjacentHTML('beforeend', itemHtml);
 }
 
-function createCartText() { // текст корзины
+// текст корзины
+function createCartText() {
     if (countQuantity(cart) > 0) {
-        $cart.textContent = `В корзине ${countQuantity(cart)} товаров на сумму ${countCartPrice(cart)} рублей`;
+        $cart.textContent = `В корзине ${countQuantity(cart)} ${declensionWords(countQuantity(cart))} на сумму ${countCartPrice(cart)} рублей`;
     } else {
         $cart.textContent = 'Корзина пуста';
         $cartSlide.textContent = 'Корзина пуста'
     };
+}
+
+// склонение слова "товар" в зависимости от количества
+function declensionWords(number) {
+    const words = ['товар', 'товара', 'товаров'];
+    number = number % 100;
+    let numUnits = number % 10;
+    if (number > 10 && number < 20) { return words[2]; }
+    if (numUnits > 1 && numUnits < 5) { return words[1]; }
+    if (numUnits === 1) { return words[0]; }
+    return words[2];
 }
 
 function showPopup() {
@@ -86,7 +102,7 @@ function closePopup() {
     $popup.style.display = 'none';
 }
 
-// отрисовка товаров в popup
+// отрисовка товаров в корзине
 function createCartSlide() {
     $cartSlide.textContent = '';
     const html = cart.map(function (item, index) {
@@ -140,7 +156,7 @@ $catalog.addEventListener('click', function (event) {
     }
 });
 
-// удаление товаров из корзины
+// удаление товара из корзины
 $slider.addEventListener('click', function (event) {
     if (event.target.className === 'delete-btn') {
         const dataId = Number(event.target.getAttribute('data-id'));
