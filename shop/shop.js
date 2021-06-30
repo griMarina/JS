@@ -8,6 +8,7 @@ const $slider = $popup.querySelector('.slider')
 const $cartSlide = $popup.querySelector('.cart-slide');
 const $nextBtn = $slider.querySelector('.next-btn');
 
+
 let cart = [];
 let catalog = [];
 
