@@ -86,6 +86,7 @@ body {
       -ms-flex-align: center;
           align-items: center;
   margin-bottom: 30px;
+  cursor: pointer;
 }
 
 .catalog {
@@ -112,5 +113,52 @@ body {
 
 .item-card__title {
   color: #330000;
+}
+
+.item-card__btn {
+  cursor: pointer;
+}
+
+.popup {
+  width: 700px;
+  height: 550px;
+  background-color: #e9dcdb;
+  position: fixed;
+  top: 130px;
+  left: calc(50% - 350px);
+  display: none;
+  color: #330000;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}
+
+.close-btn i {
+  color: #5a5858;
+}
+
+.slide {
+  padding: 20px;
+  display: none;
+}
+
+.cart-item {
+  margin-bottom: 20px;
+}
+
+.delete-btn {
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.next-btn {
+  cursor: pointer;
+  position: absolute;
+  bottom: 20px;
+  left: 324px;
 }
 /*# sourceMappingURL=style-shop.css.map */
